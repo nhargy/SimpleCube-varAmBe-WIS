@@ -22,7 +22,7 @@ public:
 
 private:
 
-    G4String spectrumFile = "/home/hargy/Scientific/Projects/Colour-Centres/SimpleCube-varAmBe-C@WIS/data/edist_Neutrons_AmBe_01.dat";  // macro can override
+    G4String spectrumFile = "/home/hargy/Scientific/Projects/Colour-Centres/SimpleCube-varAmBe-WIS/data/edist_Neutrons_AmBe_01.dat";  // macro can override
     G4String loadedSpectrumFile = "";
     std::unique_ptr<SpectrumSampler> fSpectrum;     // cached sampler
 

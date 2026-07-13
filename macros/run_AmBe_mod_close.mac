@@ -7,6 +7,8 @@
 /control/verbose 1
 /run/verbose 1
 
+/geometry/build_moderators true
+
 /source/isIon 0
 /source/pdgSource 2112
 /source/energySource -1
@@ -16,6 +18,10 @@
 /source/pdgSource2 22
 /source/energySource 4.438
 /source/fraction2 0.6
+
+# Cube position
+/cube/xCube 67.88
+/cube/yCube 67.88
 
 # Cube dimensions
 /cube/Cube_Width 10

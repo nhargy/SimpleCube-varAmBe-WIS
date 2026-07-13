@@ -92,11 +92,6 @@ int main(int argc, char** argv) {
     // Action initialization
     runManager->SetUserInitialization(new SCActionInitialization(detector, outputFile));
 
-    //if (argc == 1)
-    //{
-    //    ui = new G4UIExecutive(argc, argv);
-    //}
-
     G4VisManager *visManager = new G4VisExecutive();
     visManager->Initialize();
 

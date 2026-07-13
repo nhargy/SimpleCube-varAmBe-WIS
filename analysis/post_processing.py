@@ -25,11 +25,7 @@ def read_root_file(
                     'fEdep'
                     ]
         
-        data = tree.arrays(
-            branches, 
-            filter_name='nsteps', 
-            library='np'
-            )
+        data = tree.arrays(branches, library="np")
 
     return data
 
@@ -60,7 +56,7 @@ for c in cat_cols:
 
 for c in eDf.select_dtypes(include=["int64"]).columns:
     eDf[c] = pd.to_numeric(eDf[c], downcast="integer")
-for c in df.select_dtypes(include=["float64"]).columns:
+for c in eDf.select_dtypes(include=["float64"]).columns:
     eDf[c] = pd.to_numeric(eDf[c], downcast="float")
 
 eDf["isEntry"] = eDf["isEntry"].astype("bool")

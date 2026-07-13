@@ -1,5 +1,5 @@
-#ifndef SCPHYSICSLISTS_HH
-#define SCPHYSICSLISTS_HH
+#ifndef SCPHYSICSLIST_HH
+#define SCPHYSICSLIST_HH
 
 #include "FTFP_BERT_HP.hh"
 class SCPhysicsList : public FTFP_BERT_HP

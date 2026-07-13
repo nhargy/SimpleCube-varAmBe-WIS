@@ -37,20 +37,62 @@ SCDetectorConstruction::~SCDetectorConstruction()
 
 void SCDetectorConstruction::ApplyMessengers()
 {
-    fMessengerCube = new G4GenericMessenger(this, "/cube/", "cube");
+    fMessengerCube = new G4GenericMessenger(
+        this, 
+        "/cube/", 
+        "cube");
 
-    fMessengerCube->DeclareProperty( "xCube", xCube, "xCube");
-    fMessengerCube->DeclareProperty("yCube", yCube, "yCube");
-    fMessengerCube->DeclareProperty("Cube_Width", Cube_Width, "Cube_Width");
-    fMessengerCube->DeclareProperty("Cube_Length", Cube_Length, "Cube_Length");
-    fMessengerCube->DeclareProperty("Cube_Height", Cube_Height, "Cube_Height");
-    fMessengerCube->DeclareProperty("FiducialCube_Width", FiducialCube_Width, "CubFiducialCube_Widthe_Width");
-    fMessengerCube->DeclareProperty("FiducialCube_Length", FiducialCube_Length, "FiducialCube_Length");
-    fMessengerCube->DeclareProperty("FiducialCube_Height", FiducialCube_Height, "FiducialCube_Height");
-    fMessengerCube->DeclareProperty("Li7_percent", Li7_percent, "Li7_percent");
-    fMessengerCube->DeclareProperty("Li6_percent", Li6_percent, "Li6_percent");
+    fMessengerCube->DeclareProperty(
+        "xCube", 
+        xCube, 
+        "xCube");
 
-    // Default Values
+    fMessengerCube->DeclareProperty(
+        "yCube", 
+        yCube, 
+        "yCube");
+
+    fMessengerCube->DeclareProperty(
+        "Cube_Width",
+        Cube_Width, 
+        "Cube_Width");
+
+    fMessengerCube->DeclareProperty(
+        "Cube_Length", 
+        Cube_Length, 
+        "Cube_Length");
+
+    fMessengerCube->DeclareProperty(
+        "Cube_Height", 
+        Cube_Height, 
+        "Cube_Height");
+
+    fMessengerCube->DeclareProperty(
+        "FiducialCube_Width", 
+        FiducialCube_Width, 
+        "FiducialCube_Width");
+
+    fMessengerCube->DeclareProperty(
+        "FiducialCube_Length", 
+        FiducialCube_Length, 
+        "FiducialCube_Length");
+
+    fMessengerCube->DeclareProperty(
+        "FiducialCube_Height", 
+        FiducialCube_Height, 
+        "FiducialCube_Height");
+
+    fMessengerCube->DeclareProperty(
+        "Li7_percent", 
+        Li7_percent, 
+        "Li7_percent");
+
+    fMessengerCube->DeclareProperty(
+        "Li6_percent", 
+        Li6_percent, 
+        "Li6_percent");
+
+    // Default values for /cube/ messenger
     xCube = 70.71;
     yCube = 70.71;
 
@@ -66,11 +108,17 @@ void SCDetectorConstruction::ApplyMessengers()
     Li7_percent = 92.5;
     Li6_percent = 7.5;
 
-    fMessengerGeometry = new G4GenericMessenger(this, "/geometry/", "geometry");
+    fMessengerGeometry = new G4GenericMessenger(
+        this, 
+        "/geometry/", 
+        "geometry");
 
-    fMessengerGeometry->DeclareProperty( "build_moderators", build_moderators, "build_moderators");
+    fMessengerGeometry->DeclareProperty(
+        "build_moderators", 
+        build_moderators, 
+        "build_moderators");
 
-    // Default Values
+    // Default values for /geometry/ messenger
     build_moderators = true;
 }
 
@@ -91,17 +139,17 @@ void SCDetectorConstruction::DefineGeometryParameters()
     m_hGeometryParameters["kTol"] = 0.1 *mm;
 
     //============================ Laboratory =================================
-    m_hGeometryParameters["Lab_Width"]  = 4000. *mm;
-    m_hGeometryParameters["Lab_Length"] = 4000. *mm;
-    m_hGeometryParameters["Lab_Height"] = 4000. *mm;
+    m_hGeometryParameters["Lab_Width"]  = 5200. *mm;
+    m_hGeometryParameters["Lab_Length"] = 5200. *mm;
+    m_hGeometryParameters["Lab_Height"] = 5200. *mm;
 
     //=============================== Room ====================================
     m_hGeometryParameters["Room_Width"]     = 3960. *mm;
     m_hGeometryParameters["Room_Length"]    = 3960. *mm;
     m_hGeometryParameters["Room_Height"]    = 2470. *mm;
-    m_hGeometryParameters["Room_Thickness"] =  100. *mm;
+    m_hGeometryParameters["Room_Thickness"] =  400. *mm;
 
-    //============================== Profile ===================================
+    //============================== Profile ==================================
     m_hGeometryParameters["Profile_Width"]     =   40. *mm;
     m_hGeometryParameters["Profile_Length"]    =   80. *mm;
     m_hGeometryParameters["Profile_Height"]    = 1400. *mm;
@@ -110,7 +158,7 @@ void SCDetectorConstruction::DefineGeometryParameters()
     //=============================== Wheel ===================================
     m_hGeometryParameters["Wheel_oD"]        = 300. *mm;
     m_hGeometryParameters["Wheel_iD"]        = 240. *mm;
-    m_hGeometryParameters["Wheel_Thickness"] =   1.5 *mm;
+    m_hGeometryParameters["Wheel_Thickness"] =  1.5 *mm;
 
     m_hGeometryParameters["Spoke_Length"]    =  40. *mm;
 
@@ -125,9 +173,9 @@ void SCDetectorConstruction::DefineGeometryParameters()
     m_hGeometryParameters["PbCylinder_Cap_Thickness"] = 5. *mm;
 
     //============================== Moderator ================================
-    m_hGeometryParameters["Moderator_Width"]     = 200. *mm;
-    m_hGeometryParameters["Moderator_Length"]    =  50. *mm;
-    m_hGeometryParameters["Moderator_Height"]    = 100. *mm;
+    m_hGeometryParameters["Moderator_Width"]  = 200. *mm;
+    m_hGeometryParameters["Moderator_Length"] =  50. *mm;
+    m_hGeometryParameters["Moderator_Height"] = 100. *mm;
 }
 
 void SCDetectorConstruction::DefineMaterials()
@@ -246,7 +294,11 @@ void SCDetectorConstruction::ConstructLab()
         "logic_Lab"
     );
 
-    auto vector_Lab = G4ThreeVector(0., 0., 0.);
+    auto vector_Lab = G4ThreeVector(
+        0., 
+        0., 
+        0.);
+
     phys_Lab = new G4PVPlacement(
         0, 
         vector_Lab, 
@@ -268,26 +320,30 @@ void SCDetectorConstruction::ConstructRoom()
 
     G4Box* solid_Room1 = new G4Box(
         "solid_Room1", 
-        Room_Width/2, 
-        Room_Length/2, 
-        Room_Height/2
+        (Room_Width/2) + Room_Thickness, 
+        (Room_Length/2)+ Room_Thickness, 
+        (Room_Height/2)+ Room_Thickness
     );
 
     G4Box* solid_Room2 = new G4Box(
         "solid_Room2", 
-        (Room_Width/2)  - Room_Thickness, 
-        (Room_Length/2) - Room_Thickness, 
-        (Room_Height/2) - Room_Thickness
+        (Room_Width/2), 
+        (Room_Length/2), 
+        (Room_Height/2) 
     );
 
     G4Box* solid_Door = new G4Box(
         "solid_Door", 
         Room_Width/3, 
         Room_Thickness/2, 
-        (Room_Height/2) - Room_Thickness
+        (Room_Height/2)
     );
 
-    auto sub_vector_Room1_Room2 = G4ThreeVector(0., 0., 0.);
+    auto sub_vector_Room1_Room2 = G4ThreeVector(
+        0., 
+        0., 
+        0.);
+
     G4SubtractionSolid* solid_Room3 = new G4SubtractionSolid(
         "solid_Room3", 
         solid_Room1, 
@@ -296,7 +352,11 @@ void SCDetectorConstruction::ConstructRoom()
         sub_vector_Room1_Room2
     );
 
-    auto sub_vector_Room3_Door = G4ThreeVector(0., (Room_Length/2) - (Room_Thickness/2), 0.);
+    auto sub_vector_Room3_Door = G4ThreeVector(
+        0., 
+        -(Room_Length/2) - (Room_Thickness/2), 
+        0.);
+
     G4SubtractionSolid* solid_Room = new G4SubtractionSolid(
         "solid_Room", 
         solid_Room3, 
@@ -311,7 +371,11 @@ void SCDetectorConstruction::ConstructRoom()
         "logic_Room"
     );
 
-    auto vector_Room = G4ThreeVector(0., 0., 0.);
+    auto vector_Room = G4ThreeVector(
+        0., 
+        0., 
+        0.);
+
     phys_Room = new G4PVPlacement(
         0, 
         vector_Room, 
@@ -324,13 +388,12 @@ void SCDetectorConstruction::ConstructRoom()
     );
 
     /* Define special coordinate */
-    zpos_RoomFloor = -(Room_Height/2) + Room_Thickness;
+    zpos_RoomFloor = -(Room_Height/2);
 
     /* -- VisAttributes ---------------------------------------------------- */
     auto colour_Room = G4Colour(0.5, 0.5, 0.5, 0.5);
     G4VisAttributes *vis_Room = new G4VisAttributes(colour_Room);
     vis_Room   ->SetVisibility(true);
-    //vis_Room   ->SetForceSolid(true);
     vis_Room   ->SetForceWireframe(true);
     vis_Room   ->SetForceAuxEdgeVisible(true);
     logic_Room ->SetVisAttributes(vis_Room);
@@ -357,7 +420,11 @@ void SCDetectorConstruction::ConstructProfile()
         Profile_Height/2
     );
 
-    auto sub_vector_Profile1_Profile2 = G4ThreeVector(0., 0., 0.);
+    auto sub_vector_Profile1_Profile2 = G4ThreeVector(
+        0., 
+        0., 
+        0.);
+
     G4SubtractionSolid* solid_Profile = new G4SubtractionSolid(
         "solid_Profile", 
         solid_Profile1, 
@@ -373,7 +440,11 @@ void SCDetectorConstruction::ConstructProfile()
     );
 
     G4double zpos_Profile_centre = zpos_RoomFloor + Profile_Height/2;
-    auto vector_Profile = G4ThreeVector(0., 0., zpos_Profile_centre);
+    auto vector_Profile = G4ThreeVector(
+        0., 
+        0., 
+        zpos_Profile_centre);
+
     phys_Profile = new G4PVPlacement(
         0, 
         vector_Profile, 
@@ -393,7 +464,6 @@ void SCDetectorConstruction::ConstructProfile()
     G4VisAttributes *vis_Profile = new G4VisAttributes(colour_Profile);
     vis_Profile   ->SetVisibility(true);
     vis_Profile   ->SetForceSolid(true);
-    //vis_Profile   ->SetForceWireframe(true);
     vis_Profile   ->SetForceAuxEdgeVisible(true);
     logic_Profile ->SetVisAttributes(vis_Profile);
 
@@ -434,7 +504,11 @@ void SCDetectorConstruction::ConstructWheel()
         360.*deg
     );
 
-    auto union_vector_Rim_Spoke = G4ThreeVector(0., 0., 0.);
+    auto union_vector_Rim_Spoke = G4ThreeVector(
+        0., 
+        0., 
+        0.);
+
     G4UnionSolid* solid_Wheel1 = new G4UnionSolid(
         "solid_Wheel1", 
         solid_Rim, 
@@ -460,7 +534,11 @@ void SCDetectorConstruction::ConstructWheel()
     );
 
     G4double zpos_Wheel_centre = zpos_ProfileTop + Wheel_Thickness/2;
-    auto vector_Wheel = G4ThreeVector(0., 0., zpos_Wheel_centre);
+    auto vector_Wheel = G4ThreeVector(
+        0., 
+        0., 
+        zpos_Wheel_centre);
+
     phys_Wheel = new G4PVPlacement(
         0, 
         vector_Wheel, 
@@ -480,7 +558,6 @@ void SCDetectorConstruction::ConstructWheel()
     G4VisAttributes *vis_Wheel = new G4VisAttributes(colour_Wheel);
     vis_Wheel   ->SetVisibility(true);
     vis_Wheel   ->SetForceSolid(true);
-    //vis_Wheel   ->SetForceWireframe(true);
     vis_Wheel   ->SetForceAuxEdgeVisible(true);
     logic_Wheel ->SetVisAttributes(vis_Wheel);
 
@@ -491,7 +568,11 @@ void SCDetectorConstruction::ConstructWheel()
     );
 
     G4double zpos_Paper_centre = zpos_WheelTop + Paper_Thickness/2 + 0.1;
-    auto vector_Paper = G4ThreeVector(0., 0., zpos_Paper_centre);
+    auto vector_Paper = G4ThreeVector(
+        0., 
+        0., 
+        zpos_Paper_centre);
+
     phys_Paper = new G4PVPlacement(
         0, 
         vector_Paper, 
@@ -511,7 +592,6 @@ void SCDetectorConstruction::ConstructWheel()
     G4VisAttributes *vis_Paper = new G4VisAttributes(colour_Paper);
     vis_Paper   ->SetVisibility(true);
     vis_Paper   ->SetForceSolid(true);
-    //vis_Paper   ->SetForceWireframe(true);
     vis_Paper   ->SetForceAuxEdgeVisible(true);
     logic_Paper ->SetVisAttributes(vis_Paper);
 }
@@ -546,7 +626,11 @@ void SCDetectorConstruction::ConstructPbCylinder()
         360.*deg
     );
 
-    auto sub_vector_PbCylinder = G4ThreeVector(0., 0., zoffset_Cylinder2);
+    auto sub_vector_PbCylinder = G4ThreeVector(
+        0., 
+        0., 
+        zoffset_Cylinder2);
+
     G4SubtractionSolid* solid_PbCylinder = new G4SubtractionSolid(
         "solid_PbCylinder", 
         solid_Cylinder1, 
@@ -561,7 +645,11 @@ void SCDetectorConstruction::ConstructPbCylinder()
         "logic_PbCylinder"
     );
 
-    auto vector_PbCylinder = G4ThreeVector(0., 0., zpos_PaperTop + PbCylinder_Height/2);
+    auto vector_PbCylinder = G4ThreeVector(
+        0., 
+        0., 
+        zpos_PaperTop + PbCylinder_Height/2);
+
     phys_PbCylinder = new G4PVPlacement(
         0, 
         vector_PbCylinder, 
@@ -581,7 +669,6 @@ void SCDetectorConstruction::ConstructPbCylinder()
     G4VisAttributes *vis_PbCylinder = new G4VisAttributes(colour_PbCylinder);
     vis_PbCylinder   ->SetVisibility(true);
     vis_PbCylinder   ->SetForceSolid(true);
-    //vis_PbCylinder   ->SetForceWireframe(true);
     vis_PbCylinder   ->SetForceAuxEdgeVisible(true);
     logic_PbCylinder ->SetVisAttributes(vis_PbCylinder);
 }
@@ -603,7 +690,12 @@ void SCDetectorConstruction::ConstructCube()
 
     auto rotZ45 = new G4RotationMatrix();
     rotZ45->rotateZ(45.*deg);
-    auto vector_Cube = G4ThreeVector(xCube, yCube, zpos_PaperTop+Cube_Height/2);
+
+    auto vector_Cube = G4ThreeVector(
+        xCube, 
+        yCube, 
+        zpos_PaperTop+Cube_Height/2);
+
     phys_Cube = new G4PVPlacement(
         rotZ45, 
         vector_Cube, 
@@ -616,10 +708,10 @@ void SCDetectorConstruction::ConstructCube()
     );
 
     /* VisAttributes */
-    auto colour_Cube = G4Colour(0, 1., 1., 1.);
+    auto colour_Cube = G4Colour(0, 1., 1., 0.25);
     G4VisAttributes *vis_Cube = new G4VisAttributes(colour_Cube);
     vis_Cube   ->SetVisibility(true);
-    vis_Cube   ->SetForceWireframe(true);
+    vis_Cube   ->SetForceSolid(true);
     vis_Cube   ->SetForceAuxEdgeVisible(true);
     logic_Cube ->SetVisAttributes(vis_Cube);
 
@@ -636,7 +728,11 @@ void SCDetectorConstruction::ConstructCube()
         "logic_FiducialCube"
     );
 
-    auto vector_FiducialCube = G4ThreeVector(0., 0., 0.);
+    auto vector_FiducialCube = G4ThreeVector(
+        0., 
+        0., 
+        0.);
+
     phys_FiducialCube = new G4PVPlacement(
         0, 
         vector_FiducialCube, 
@@ -680,10 +776,12 @@ void SCDetectorConstruction::ConstructModerators()
 
     auto rotZ45 = new G4RotationMatrix();
     rotZ45->rotateZ(45.*deg);
+
     auto vector_Moderator1 = G4ThreeVector(
         ((PbCylinder_oD/2) + (Moderator_Length/2) + 1)/std::sqrt(2.0), 
         ((PbCylinder_oD/2) + (Moderator_Length/2) + 1)/std::sqrt(2.0),  
         zpos_PaperTop+Moderator_Height/2);
+
     phys_Moderator1 = new G4PVPlacement(
         rotZ45, 
         vector_Moderator1, 
@@ -699,6 +797,7 @@ void SCDetectorConstruction::ConstructModerators()
         -((PbCylinder_oD/2) + (Moderator_Length/2) + 1)/std::sqrt(2.0), 
         -((PbCylinder_oD/2) + (Moderator_Length/2) + 1)/std::sqrt(2.0),  
         zpos_PaperTop+Moderator_Height/2);
+
     phys_Moderator2 = new G4PVPlacement(
         rotZ45, 
         vector_Moderator2, 
@@ -711,11 +810,10 @@ void SCDetectorConstruction::ConstructModerators()
     );
 
     /* VisAttributes */
-    auto colour_Moderator = G4Colour(1., 1., 1.);
+    auto colour_Moderator = G4Colour(1., 1., 1., 1.);
     G4VisAttributes *vis_Moderator = new G4VisAttributes(colour_Moderator);
     vis_Moderator   ->SetVisibility(true);
-    vis_Moderator   ->SetForceWireframe(true);
-    //vis_Moderator   ->SetForceSolid(true);
+    vis_Moderator   ->SetForceSolid(true);
     vis_Moderator   ->SetForceAuxEdgeVisible(true);
     logic_Moderator ->SetVisAttributes(vis_Moderator);
 }

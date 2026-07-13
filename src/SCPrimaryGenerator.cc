@@ -117,7 +117,6 @@ void SCPrimaryGenerator::ApplyMessengers() {
     xSource = 0;
     ySource = 0;
     zSource = 0;
-
     isSecondSource = 1;
     pdgSource2     = 22;
     energySource2  = 4.438;

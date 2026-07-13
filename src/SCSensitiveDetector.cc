@@ -22,8 +22,6 @@ G4bool SCSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     G4String creatorProcName = creatorProc ? creatorProc->GetProcessName() : "primary";
 
     // Track info
-    //G4int trackID  = track->GetTrackID();
-    //G4int ptrackID = track->GetParentID();
     G4int pdgID    = track->GetDefinition()->GetPDGEncoding();
 
     // Pre-step Coordinates
@@ -45,11 +43,6 @@ G4bool SCSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     // Energy Deposition
     G4double fEdep = aStep->GetTotalEnergyDeposit();
 
-    // Interaction Process
-    //const G4VProcess *preProc = preStepPoint->GetProcessDefinedStep(); 
-    //G4String preProcName = "NA";
-    //if (preProc) preProcName = preProc->GetProcessName();
-
     const G4VProcess *postProc = postStepPoint->GetProcessDefinedStep(); 
     G4String postProcName = "NA";
     if (postProc) postProcName = postProc->GetProcessName();
@@ -57,21 +50,11 @@ G4bool SCSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     // Is it an entry particle?
     G4bool isEntry = (preStepPoint->GetStepStatus()==fGeomBoundary);
 
-    // Is it an exit particle?
-    //G4bool isExit = (postStepPoint->GetStepStatus()==fGeomBoundary);
-
-    // Time
-    //G4float fSec = postStepPoint->GetGlobalTime() / 1E+09;
-
     // Build Records Table
     G4AnalysisManager *analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillNtupleIColumn(0, 0,  eventID);
-    //analysisManager->FillNtupleIColumn(0, 1,  ptrackID);
-    //analysisManager->FillNtupleIColumn(0, 2,  trackID);
     analysisManager->FillNtupleIColumn(0, 1,  pdgID);
     analysisManager->FillNtupleIColumn(0, 2,  isEntry);
-    //analysisManager->FillNtupleIColumn(0, 3,  isExit);
-    //analysisManager->FillNtupleSColumn(0, 3,  preProcName);
     analysisManager->FillNtupleSColumn(0, 3,  postProcName);
     analysisManager->FillNtupleSColumn(0, 4,  creatorProcName);
     analysisManager->FillNtupleDColumn(0, 5,  fX1);
@@ -83,7 +66,6 @@ G4bool SCSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     analysisManager->FillNtupleDColumn(0, 11, fK1);
     analysisManager->FillNtupleDColumn(0, 12, fK2);
     analysisManager->FillNtupleDColumn(0, 13, fEdep);
-    //analysisManager->FillNtupleDColumn(0, 16, fSec);
     analysisManager->AddNtupleRow(0);
 
     return true;
