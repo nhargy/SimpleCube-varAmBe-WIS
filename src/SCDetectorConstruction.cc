@@ -119,7 +119,7 @@ void SCDetectorConstruction::ApplyMessengers()
         "build_moderators");
 
     // Default values for /geometry/ messenger
-    build_moderators = true;
+    build_moderators = false;
 }
 
 G4double SCDetectorConstruction::GetGeometryParameter(const char *szParameter)
