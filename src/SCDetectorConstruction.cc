@@ -648,7 +648,7 @@ void SCDetectorConstruction::ConstructPbCylinder()
     auto vector_PbCylinder = G4ThreeVector(
         0., 
         0., 
-        zpos_PaperTop + PbCylinder_Height/2);
+        zpos_PaperTop + (solid_Cylinder1_Height/2) + 0.1);
 
     phys_PbCylinder = new G4PVPlacement(
         0, 
@@ -694,7 +694,7 @@ void SCDetectorConstruction::ConstructCube()
     auto vector_Cube = G4ThreeVector(
         xCube, 
         yCube, 
-        zpos_PaperTop+Cube_Height/2);
+        zpos_PaperTop + (Cube_Height/2) + 0.1);
 
     phys_Cube = new G4PVPlacement(
         rotZ45, 
@@ -780,7 +780,7 @@ void SCDetectorConstruction::ConstructModerators()
     auto vector_Moderator1 = G4ThreeVector(
         ((PbCylinder_oD/2) + (Moderator_Length/2) + 1)/std::sqrt(2.0), 
         ((PbCylinder_oD/2) + (Moderator_Length/2) + 1)/std::sqrt(2.0),  
-        zpos_PaperTop+Moderator_Height/2);
+        zpos_PaperTop + (Moderator_Height/2) + 0.1);
 
     phys_Moderator1 = new G4PVPlacement(
         rotZ45, 
@@ -796,7 +796,7 @@ void SCDetectorConstruction::ConstructModerators()
     auto vector_Moderator2 = G4ThreeVector(
         -((PbCylinder_oD/2) + (Moderator_Length/2) + 1)/std::sqrt(2.0), 
         -((PbCylinder_oD/2) + (Moderator_Length/2) + 1)/std::sqrt(2.0),  
-        zpos_PaperTop+Moderator_Height/2);
+        zpos_PaperTop + (Moderator_Height/2) + 0.1);
 
     phys_Moderator2 = new G4PVPlacement(
         rotZ45, 
